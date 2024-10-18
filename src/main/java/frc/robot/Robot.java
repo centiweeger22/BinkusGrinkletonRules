@@ -35,8 +35,6 @@ public class Robot extends TimedRobot {
   private static final String kBinkAuto = "Binkus Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  private final GenericEntry nubnerSlider = Shuffleboard.getTab("My Tab").add("My Number", 0).withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", 0, "max", 20)).getEntry();
-
   private final XRPDrivetrain m_drivetrain = new XRPDrivetrain();
 
   /**
@@ -114,7 +112,6 @@ public class Robot extends TimedRobot {
         }
         break;
       case kBinkAuto:
-        m_drivetrain.setUltrasonicChannels((nubnerSlider.get().getInteger()),nubnerSlider.get().getInteger()+1);
         System.out.println(m_drivetrain.getUltrasonicDist());
         if (m_drivetrain.getUltrasonicDist() >1)
         {
